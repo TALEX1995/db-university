@@ -20,7 +20,7 @@ SELECT * FROM `degrees` WHERE `level` = 'magistrale';
 SELECT COUNT(*) FROM `departments`;
 
 -- 8. Quanti sono gli insegnanti che non hanno un numero di telefono? (50)
-
+SELECT * FROM `teachers` WHERE `phone` IS NULL;
 
 
 
