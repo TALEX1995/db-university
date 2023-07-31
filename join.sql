@@ -22,8 +22,15 @@ ON `T`.`id` = `CT`.`teacher_id`
 WHERE `T`.`name` = 'Fulvio'
 AND `T`.`surname` = 'Amato';
 
-
 -- 4. Selezionare tutti gli studenti con i dati relativi al corso di laurea a cui sono iscritti e il relativo dipartimento, in ordine alfabetico per cognome e nome
+SELECT `S`.`name` AS `student_name` ,  `S`.`surname` AS `student_surname`, `DEG`.`name` AS `degree_name`, `DEP`.`name` AS `department_name`
+FROM `students` AS S
+JOIN `degrees` AS DEG
+ON `S`.`degree_id` = `DEG`.`id`
+JOIN `departments` AS DEP
+ON `DEG`.`department_id` = `DEP`.`id`
+ORDER BY `S`.`name`, `S`.`surname`;
+
 -- 5. Selezionare tutti i corsi di laurea con i relativi corsi e insegnanti
 -- 6. Selezionare tutti i docenti che insegnano nel Dipartimento di Matematica (54)
 -- 7. BONUS: Selezionare per ogni studente quanti tentativi d’esame ha sostenuto per superare ciascuno dei suoi esami
